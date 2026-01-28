@@ -1,5 +1,5 @@
 import { useLanguage } from "./context/LangContext"
-import Nav from "./Nav"
+import Nav from "./components/Nav"
 
 
 

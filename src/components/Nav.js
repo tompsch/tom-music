@@ -1,8 +1,8 @@
 import { Link } from "react-router";
-import { useLanguage } from "./context/LangContext";
+import { useLanguage } from "../context/LangContext";
 
 
-export default function Nav (props) {
+export default function Nav () {
 
 const {language} = useLanguage();
 
@@ -32,10 +32,10 @@ const elements = [
 
 
 return (
-    <nav className="nav-bar" style={props.style}>
+    <nav className="nav-bar" >
         {elements.map((element) => {
             return (
-                <Link to={element.id} key={element.id} className={"nav"} style={{ textDecoration: 'none' }}>{language == "english" ? element.inEng : element.inSpa}</Link>
+                <Link to={element.id} key={element.id + language} className={"nav"} style={{ textDecoration: 'none' }}>{language == "english" ? element.inEng : element.inSpa}</Link>
             )
         })}
     </nav>
