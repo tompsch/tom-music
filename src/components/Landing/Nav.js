@@ -1,8 +1,9 @@
 import { Link } from "react-router";
-import { useLanguage } from "../context/LangContext";
+import { useLanguage } from "../../context/LangContext";
+import classes from "./Nav.module.css"
 
 
-export default function Nav () {
+export default function Nav ({orientation}) {
 
 const {language} = useLanguage();
 
@@ -30,12 +31,13 @@ const elements = [
     
 ];
 
-
 return (
-    <nav className="nav-bar" >
+    <nav className={orientation === "vertical" && classes.verticalNavBar} >
         {elements.map((element) => {
             return (
-                <Link to={element.id} key={element.id + language} className={"nav"} style={{ textDecoration: 'none' }}>{language == "english" ? element.inEng : element.inSpa}</Link>
+                <Link to={element.id} key={element.id + language} className={orientation === "horizontal" ? classes.navElement : classes.navElementVertical}>
+                    {language == "english" ? element.inEng : element.inSpa}
+                </Link>
             )
         })}
     </nav>

@@ -1,5 +1,5 @@
 header {
-    /* grid-area: header; */
+    grid-area: header;
     display: grid;
     width: auto;
     grid-template-columns: 1fr auto 1fr;
@@ -14,34 +14,42 @@ header {
 }
 
 .left {
-        grid-area: left;
-        display: grid;
-        background-color: white;
-        color: black;
-        font-size: clamp(18px,2.2vw,25px);
-        justify-items: center;
-        align-items: center;
+    grid-area: left;
+    display: grid;
+    background-color: white;
+    color: black;
+    font-size: clamp(18px,2.2vw,25px);
+    justify-items: center;
+    align-items: center;
 
-        }
+}
 .center {
-        grid-area: center;
-        display: grid;
-        justify-items: center;
-        align-items: center;
-    }
+    grid-area: center;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
 .right {
-        grid-area: right;
-        display: flex;
-        flex-direction: column;
-        background-color: white;
-        justify-content: space-between;
-    }
+    grid-area: right;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    justify-content: space-between;
+}
 .greeting {
     display: grid;
     justify-items: center;
 }
-@media all and (max-width: 600px) {
+#pic {
+        max-width:332px;
+        object-fit: cover;
 
+}
+#jobs {
+    text-align: center;
+}
+
+@media all and (max-width: 600px) {
     header {
         grid-template-columns: 1fr auto auto;
         grid-template-rows: 1fr;
@@ -59,5 +67,10 @@ header {
     .right {
         grid-column: 2 / span 2;
         background: none;
+    }   
+    #pic {
+        object-fit: cover;
+        height: 65vh;
+        width: 100%;
     }
 }

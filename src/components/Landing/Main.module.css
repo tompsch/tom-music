@@ -1,0 +1,97 @@
+
+    main {
+        display: flex;
+        flex-direction: column;
+        height: 478px;
+        justify-content: space-around;
+        align-items: center;
+        background-color: black;
+
+        color: hsl(0, 0%, 100%);
+        scroll-snap-align: start;
+
+    }
+
+    .lessons {
+        /* margin-top: -20px; */
+        height: 300px;
+        font-size: 34px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+
+        animation: entrada linear forwards;
+        animation-timeline: view();
+
+        animation-range-start: entry;
+        animation-range-end: entry;
+
+    }
+
+    .arrow {
+        width: 50px;
+    }
+
+    .arrow:hover {
+        cursor: pointer;
+    }
+
+
+    #wapp {
+        max-height: 55px;
+    }
+
+
+@media all and (max-width: 600px) {
+
+    main {
+        height: 65vh;
+    }
+
+    .lessons {
+        font-size: 4.5vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .arrow {
+        height: 10vh;
+        width: auto;
+    }
+
+    #want, #lesson {
+        margin: 0;
+    }
+
+    #reachMe {
+        text-align: center;
+    }
+
+    #wapp {
+    max-height: none;
+    padding: 0;
+
+    width: auto;
+    height: 9vh;
+
+
+
+    transition: 0.5s;
+
+    animation: entrada linear forwards;
+    animation-timeline: view();
+    animation-range-start: cover 50px;
+    animation-range-end: 200px;
+    }
+
+}
+@media (min-width: 600px) {
+    #wapp:hover {
+        transform: scale(1.1);
+        transition: 0.5s;
+        cursor: pointer;
+    }
+}
