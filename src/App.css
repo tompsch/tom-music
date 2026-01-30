@@ -1,3 +1,4 @@
+/* General purpose */
 @keyframes entrada {
     from { opacity: 0 }
     to { opacity: 1 }
@@ -10,21 +11,29 @@
 * {
     margin: 0;
     padding: 0px;
-    font-family: Futura,Trebuchet MS,Arial,sans-serif;
+    font-family: Futura, Trebuchet MS, Arial, sans-serif;
     animation: entrada 0.75s;
 }
 
-#root {
+/* Landing page (#root) */
+.landingContainer {
     display: grid;
     height: 100dvh;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-areas: "header" "main" "footer";
-    scrollbar-gutter: stable;
+    /* scrollbar-gutter: stable; */
     /* width: 100svw; */
     /* scroll-snap-type: y proximity; */
     /* overflow-y: scroll; */
     }
 
-
+/* About page */
+.aboutContainer {
+    display: grid;
+    height: 100dvh;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: "header" "main";
+}
 

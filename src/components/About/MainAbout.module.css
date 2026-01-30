@@ -1,0 +1,41 @@
+.aboutMain {
+    grid-area: main;
+}
+.heading {
+    display: flex;
+    align-items: center;
+    margin: 27px 0 36px 55px;
+
+}
+
+.sunFootprint {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.sunPic {
+    width: 136px;
+    grid-row: 1;
+    grid-column: 1;
+}
+.footprintsPic {
+    width: 71px;
+    transform: rotate(29deg);
+    grid-row: 1;
+    grid-column: 1;
+}
+
+.heading h1 {
+    font-size: 32px;
+    margin: 0 27px;
+}
+
+.bio {
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 51px;
+    font-size: 24px;
+    margin: 0 55px;
+}

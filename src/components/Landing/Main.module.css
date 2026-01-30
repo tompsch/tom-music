@@ -1,5 +1,5 @@
 
-    main {
+    main.landingMain {
         display: flex;
         flex-direction: column;
         height: 478px;
@@ -46,7 +46,7 @@
 
 @media all and (max-width: 600px) {
 
-    main {
+    main.landingMain {
         height: 65vh;
     }
 

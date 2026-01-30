@@ -47,12 +47,10 @@
     grid-column-start: 2;
     max-height: 30px;
   }
-@media (min-width: 600px) {
-    .off:hover * {
-        opacity: 1;
-        transition: 0.5s;
-        cursor: pointer;
-    }
+.off:hover * {
+    opacity: 1;
+    transition: 0.5s;
+    cursor: pointer;
 }
 
 @media (max-width: 600px) {

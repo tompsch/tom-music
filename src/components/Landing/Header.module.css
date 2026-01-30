@@ -1,4 +1,4 @@
-header {
+header.landingHeader {
     grid-area: header;
     display: grid;
     width: auto;
@@ -13,6 +13,9 @@ header {
     animation-range-end: cover;
 }
 
+.landingHeader p {
+    z-index: 1;
+}
 .left {
     grid-area: left;
     display: grid;
@@ -50,7 +53,7 @@ header {
 }
 
 @media all and (max-width: 600px) {
-    header {
+    header.landingHeader {
         grid-template-columns: 1fr auto auto;
         grid-template-rows: 1fr;
         animation: none;
@@ -67,10 +70,17 @@ header {
     .right {
         grid-column: 2 / span 2;
         background: none;
-    }   
+    }
     #pic {
         object-fit: cover;
         height: 65vh;
         width: 100%;
     }
+}
+
+.yellow {
+    width: clamp(60px,20vw,180px);
+    position: absolute;
+    top: 83px;
+    z-index: 0;
 }
