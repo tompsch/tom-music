@@ -40,17 +40,24 @@ div.noDisplay {
     width: 34px;
 }
 
-.navIconWrapper button {
+/* .navIconWrapper button {
     background: none;
-	/* color: inherit; */
+	    color: inherit;
 	border: none;
-	/* padding: 0; */
+	    padding: 0;
 	font: inherit;
 	cursor: pointer;
-	/* outline: inherit; */
+	    outline: inherit;
     padding: 0;
     anchor-name: --lang-selector;
     
+} */
+.langSelector {
+    anchor-name: --lang-selector;
+}
+.whileSelecting {
+    animation: none;
+    opacity: 0.5;
 }
 
 a.navElement {

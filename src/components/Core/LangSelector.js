@@ -14,8 +14,9 @@ function LangSelector ({type}) {
             language === "spanish" && setLanguage("english");
         }
     }
+    // popover = {type === "noLanding" && "auto"} id="langSelector"
     return (
-        <aside className={type=== "landing" ? classes.lang : classes.noLandingLang} popover = {type === "noLanding" && "auto"} id="langSelector">
+        <aside className={type=== "landing" ? classes.lang : classes.noLandingLang} >
             <div className={`${classes.english} ${language === "english" ? classes.on : classes.off}`}
                  onClick={() => changeLang("toEng")}
                  aria-label={language === "english" ? "Language selector: English" : "Seleccionador de idioma: inglés"}>

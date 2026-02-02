@@ -6,13 +6,26 @@ import login from "../../assets/login-avatar.png"
 import world from "../../assets/internet.png"
 import { useLocation } from "react-router";
 import LangSelector from "./LangSelector";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { isVisible } from "@testing-library/user-event/dist/utils";
 
 
 export default function Nav ({type}) {
 
 const {language} = useLanguage();
 const location = useLocation();
+const [isActive, setIsActive] = useState(false);
+const handleScroll = () => setIsActive(false);
+
+useEffect(()=>{
+    isActive && setIsActive(false);
+    window.addEventListener("scroll",handleScroll);
+    return (()=>window.removeEventListener("scroll",handleScroll));
+},[]);
+
+useEffect(()=>{
+    setIsActive(false);
+},[language]);
 
 const elements = [
     {
@@ -63,23 +76,23 @@ const icons = [
 ];
 
 
-// const handleLangSelector = () => {
+const handleLangSelector = (e) => {
+    e.preventDefault();
+    setIsActive(!isActive);
+    // await new Promise = setTimeout((resolve)=>(resolve));
+};
 
-// };
-// onClick={icon.name === "world" ? handleLangSelector : ""}
 return (
     <nav className={type === "noLanding" ? classes.noLandingNav : classes.landingNav} >
         <div className={type === "noLanding" ? classes.navIconWrapper : classes.noDisplay}>
         {type === "noLanding" && icons.map(icon =>{
             return (
-                icon.name !== "world" ?
-                <Link to={icon.path} key={icon.name + language} >
+                <Link to={icon.path} key={icon.name + language} onClick={icon.name === "world" && handleLangSelector} className={`${icon.name==="world" && classes.langSelector} ${(isActive && icon.name==="world") && classes.whileSelecting}`}>
                     <img className={classes.noLandingNavIcon} src={icon.src} alt={language === "english" ? icon.altEng : icon.altSpa} ></img>
-                </Link> :
-                <button popoverTarget="langSelector" key={icon.name + language}><img className={classes.noLandingNavIcon} src={icon.src} alt={language === "english" ? icon.altEng : icon.altSpa} ></img></button>
+                </Link>
             )
         })}
-        <LangSelector type={"noLanding"} />
+        {isActive && <LangSelector type={"noLanding"} />}
         </div>
         <div className={type === "landing" ? classes.navWrapper : classes.navWrapperNoLanding}>
             {elements.map((element) => {
