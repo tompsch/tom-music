@@ -5,6 +5,8 @@ import home from "../../assets/home.png"
 import login from "../../assets/login-avatar.png"
 import world from "../../assets/internet.png"
 import { useLocation } from "react-router";
+import LangSelector from "./LangSelector";
+import { useState } from "react";
 
 
 export default function Nav ({type}) {
@@ -60,18 +62,26 @@ const icons = [
     },
 ];
 
+
+// const handleLangSelector = () => {
+
+// };
+// onClick={icon.name === "world" ? handleLangSelector : ""}
 return (
     <nav className={type === "noLanding" ? classes.noLandingNav : classes.landingNav} >
         <div className={type === "noLanding" ? classes.navIconWrapper : classes.noDisplay}>
         {type === "noLanding" && icons.map(icon =>{
             return (
-                <Link to={icon.path} key={icon.name + language}>
+                icon.name !== "world" ?
+                <Link to={icon.path} key={icon.name + language} >
                     <img className={classes.noLandingNavIcon} src={icon.src} alt={language === "english" ? icon.altEng : icon.altSpa} ></img>
-                </Link>
+                </Link> :
+                <button popoverTarget="langSelector" key={icon.name + language}><img className={classes.noLandingNavIcon} src={icon.src} alt={language === "english" ? icon.altEng : icon.altSpa} ></img></button>
             )
         })}
+        <LangSelector type={"noLanding"} />
         </div>
-        <div className={type === "landing" ? classes.navWrapper : `${classes.navWrapperNoLanding} ${classes.navWrapper}`}>
+        <div className={type === "landing" ? classes.navWrapper : classes.navWrapperNoLanding}>
             {elements.map((element) => {
                 return (
                     <Link to={element.path} key={element.path + language} className={type === "landing" ? classes.navElement : `${classes.navElement} ${classes.noLandingNavElement}`}>

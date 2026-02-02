@@ -42,7 +42,9 @@ header.landingHeader {
 .greeting {
     display: grid;
     justify-items: center;
+    grid-template-rows: auto 40px;
 }
+
 #pic {
         max-width:332px;
         object-fit: cover;
@@ -78,9 +80,12 @@ header.landingHeader {
     }
 }
 
-.yellow {
-    width: clamp(60px,20vw,180px);
-    position: absolute;
-    top: 83px;
-    z-index: 0;
+.tom {
+    grid-row: 2;
+    grid-column: 1;
+    background-image: url("../../assets/yellow stripe.png");
+    background-size: cover;
+    background-position: center;
+    padding: 0 40px;
+    margin: 0 -40px;
 }

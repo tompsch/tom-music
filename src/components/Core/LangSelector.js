@@ -3,7 +3,7 @@ import spainLogo from "../../assets/spain.png";
 import { useLanguage } from "../../context/LangContext";
 import classes from "./LangSelector.module.css"
 
-function LangSelector () {
+function LangSelector ({type}) {
     const {language,setLanguage} = useLanguage();
 
     const changeLang = ( toLang ) => {
@@ -15,7 +15,7 @@ function LangSelector () {
         }
     }
     return (
-        <aside className={classes.lang}>
+        <aside className={type=== "landing" ? classes.lang : classes.noLandingLang} popover = {type === "noLanding" && "auto"} id="langSelector">
             <div className={`${classes.english} ${language === "english" ? classes.on : classes.off}`}
                  onClick={() => changeLang("toEng")}
                  aria-label={language === "english" ? "Language selector: English" : "Seleccionador de idioma: inglés"}>

@@ -7,7 +7,12 @@
     width: calc((100vw - 332px)/2);
 }
 .navWrapperNoLanding {
-    /* flex-wrap: nowrap; */
+    display: flex;
+    flex-shrink: 4;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 8px;
+
     grid-column: 2 / span 1;
     justify-self: flex-end;
     width: clamp(402px, calc((100vw - 332px)/2), calc((100vw - 332px)/2));
@@ -32,7 +37,20 @@ div.noDisplay {
 }
 
 .noLandingNavIcon {
-    width: 40px;
+    width: 34px;
+}
+
+.navIconWrapper button {
+    background: none;
+	/* color: inherit; */
+	border: none;
+	/* padding: 0; */
+	font: inherit;
+	cursor: pointer;
+	/* outline: inherit; */
+    padding: 0;
+    anchor-name: --lang-selector;
+    
 }
 
 a.navElement {
@@ -62,6 +80,10 @@ a.navElement {
         margin-top: 14vh;
         flex-direction: column;
         align-items: end;
+        width: auto;
+    }
+    .navWrapperNoLanding {
+        display:none;
     }
 
      a.navElement {
@@ -72,7 +94,9 @@ a.navElement {
     a.navElement:hover {
         color: rgb(240, 218, 132, 1);
     }
-    .navWrapper {
-       width: auto;
+    .navWrapperNoLanding a {
+        color: black;
+        text-decoration: none;
+        transition: 0.5s;
 }
 }

@@ -1,5 +1,8 @@
 .aboutMain {
     grid-area: main;
+    * {
+        animation: none;
+    }
 }
 .heading {
     display: flex;
@@ -15,12 +18,12 @@
 }
 
 .sunPic {
-    width: 136px;
+    width: 90px;
     grid-row: 1;
     grid-column: 1;
 }
 .footprintsPic {
-    width: 71px;
+    width: 50px;
     transform: rotate(29deg);
     grid-row: 1;
     grid-column: 1;
@@ -32,10 +35,85 @@
 }
 
 .bio {
-    width: 800px;
     display: flex;
     flex-direction: column;
-    row-gap: 51px;
     font-size: 24px;
     margin: 0 55px;
 }
+
+
+.bioPicContainer {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 200px;
+    align-items: center;
+    @starting-style {
+        opacity: 0.5;
+    }
+}
+.bioPicContainer:hover *{
+    opacity: 1;
+    transition: 0.5s;
+    z-index: 1;
+}
+
+@media (max-width: 1200px) {
+    .bioPicContainer {
+        grid-template-rows: 350px;
+    }
+}
+@media (max-width:800px) {
+    .bioPicContainer {
+        grid-template-rows: 500px;
+    }
+}
+@media (max-width: 600px) {
+    .heading {
+        margin: 27px 0 36px 20px;
+
+    }
+    .bio {
+        margin: 0 20px;
+}
+
+    .heading h1 {
+        font-size: 28px;
+        margin: 0 15px;
+    }
+    .bioPics {
+        display:none;
+    }
+    .bioPicContainer {
+        grid-template-rows: 200px;
+    }
+    .bioPicContainer:not(:hover) *{
+        opacity: 1;
+    }
+}
+
+.bioPicContainer p {
+    opacity: 0.5;
+    font-size: clamp(14px,3vw,24px);
+}
+.bioPics {
+    opacity: 0;
+    animation: none;
+    object-fit: contain;
+    margin: 0 0 0 40px;
+    width: clamp(250px,30vw ,350px);
+    grid-column: 2;
+
+}
+
+
+.bioPic1 {
+    object-position: 0px 30px;
+}
+.bioPic4 {
+    object-position: 0px 85px;
+}
+.bioPic6 {
+    object-position: 0px 60px;
+}
+
+

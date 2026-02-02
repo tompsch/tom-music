@@ -8,6 +8,34 @@
     align-self: flex-end;
     margin-right: 20px;
     margin-bottom: 20px;
+    * {
+        animation: none;
+    }
+}
+.noLandingLang {
+    * {
+        animation: none;
+    }
+    position: absolute;
+    position-anchor: --lang-selector;
+    inset: auto;
+    margin: 0px 10px;
+
+    /* top: anchor(center);
+    left: anchor(right); */
+    position-area: right center;
+    
+    &:popover-open {
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 4px;
+        justify-items: center;
+        border: none;
+    }
+    img {
+        display: none;
+    }
 }
 .english {
     display: grid;

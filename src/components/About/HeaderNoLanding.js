@@ -1,5 +1,5 @@
 import classes from "./HeaderNoLanding.module.css"
-import Nav from "../Landing/Nav"
+import Nav from "../Core/Nav"
 
 export default function HeaderNoLanding ({headerPage, navType}) {
     return (
