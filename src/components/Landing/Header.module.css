@@ -1,4 +1,4 @@
-header.landingHeader {
+.landingHeader {
     grid-area: header;
     display: grid;
     width: auto;
@@ -7,6 +7,7 @@ header.landingHeader {
     grid-template-areas: "left center right";
 
     scroll-snap-align: start;
+
     animation: entrada linear reverse;
     animation-timeline: view();
     animation-range-start: exit;
@@ -24,6 +25,7 @@ header.landingHeader {
     font-size: clamp(18px,2.2vw,25px);
     justify-items: center;
     align-items: center;
+    
 
 }
 .center {

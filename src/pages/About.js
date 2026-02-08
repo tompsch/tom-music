@@ -1,11 +1,9 @@
-import { useLanguage } from "../context/LangContext"
-import HeaderNoLanding from "../components/About/HeaderNoLanding";
+import HeaderNoLanding from "../components/Core/HeaderNoLanding";
 import MainAbout from "../components/About/MainAbout";
 
 
 
 export default function About () {
-    const { language } = useLanguage();
     return (
         <div className="aboutContainer">
             <HeaderNoLanding headerPage="aboutHeader" navType="noLanding"/>

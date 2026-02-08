@@ -32,7 +32,7 @@ export default function Footer () {
             <button className={classes.login} onClick={handleClick}>Login</button>
             <img className= {`${classes.scrollUp} ${isVisible && classes.visible} : ""`} src={scrollUp} onClick={scrollUpFunction}
             alt = {language === "english" ? "Point up arrow" : "Flecha hacia arriba"}></img>
-            <p className={classes.copyright}>Copyright tom.psch® 2025</p>
+            <p className={classes.copyright}>Copyright tom.psch® 2026</p>
             <aside className={classes.fotoFooterContainer}>
                 <div className={classes.topWhite}></div>
                 <div className={classes.bottomBlack}></div>

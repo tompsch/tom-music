@@ -1,0 +1,8 @@
+header.aboutHeader {
+    grid-area: header;
+}
+
+header.mediaHeader {
+    grid-area: header;
+
+}

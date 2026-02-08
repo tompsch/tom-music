@@ -1,31 +1,42 @@
-import { Link } from "react-router";
+import { Link, NavLink, useLocation } from "react-router";
 import { useLanguage } from "../../context/LangContext";
 import classes from "./Nav.module.css"
 import home from "../../assets/home.png"
 import login from "../../assets/login-avatar.png"
 import world from "../../assets/internet.png"
-import { useLocation } from "react-router";
 import LangSelector from "./LangSelector";
 import { useEffect, useState } from "react";
-import { isVisible } from "@testing-library/user-event/dist/utils";
+import burguer from "../../assets/burguer.svg"
+import cross from "../../assets/close.png"
 
-
-export default function Nav ({type}) {
+export default function Nav ({type, firstMount}) {
 
 const {language} = useLanguage();
-const location = useLocation();
 const [isActive, setIsActive] = useState(false);
-const handleScroll = () => setIsActive(false);
+const [openBurguer, setOpenBurger] = useState(false);
+const currentLocation = useLocation();
 
-useEffect(()=>{
-    isActive && setIsActive(false);
-    window.addEventListener("scroll",handleScroll);
-    return (()=>window.removeEventListener("scroll",handleScroll));
-},[]);
-
-useEffect(()=>{
+const handleScroll = () => {
     setIsActive(false);
-},[language]);
+    setOpenBurger(false);
+}
+
+
+useEffect(()=>{
+    if(type === "noLanding") {
+        window.addEventListener("scroll",handleScroll);
+        return (()=>window.removeEventListener("scroll",handleScroll));
+    }
+},);
+useEffect(()=> {
+    window.addEventListener("resize",handleScroll);
+    return (()=> window.addEventListener("resize", handleScroll));
+})
+useEffect(()=>{
+    if(type === "noLanding") {
+        setIsActive(false);
+    }
+},[language, type]);
 
 const elements = [
     {
@@ -34,21 +45,20 @@ const elements = [
         path: "/about"
     },
     {
+        inEng: "Media",
+        inSpa: "Media",
+        path: "/media"
+    },
+    {
         inEng: "Work",
         inSpa: "Trabajo",
         path: "/work"
-    },
-    {
-        inEng: "Media",
-        inSpa: "Media",
-        path: "/photos"
     },
     {
         inEng: "Contact",
         inSpa: "Contacto",
         path: "/contact"
     },
-    
 ];
 
 const icons = [
@@ -71,38 +81,76 @@ const icons = [
         src: world,
         altEng: "World icon",
         altSpa: "Icono de mundo",
-        path: location.pathname,
+        // path: location.pathname,
+        path: "",
     },
 ];
-
 
 const handleLangSelector = (e) => {
     e.preventDefault();
     setIsActive(!isActive);
-    // await new Promise = setTimeout((resolve)=>(resolve));
 };
 
+const handleBurguer = (e) => {
+    e.preventDefault();
+    setOpenBurger(!openBurguer);
+}
+
+const handleSamePath = (path) => {
+    if (path === currentLocation.pathname) {
+        setOpenBurger(false);
+    }
+}
+//  ${firstMount && "animated"}
 return (
-    <nav className={type === "noLanding" ? classes.noLandingNav : classes.landingNav} >
+    <nav className={`${type === "noLanding" ? classes.noLandingNav : (firstMount ? "animated" : classes.pseudoAnimated)}`}> 
+        {/* ICON WRAPPER FOR NO-LANDING PAGES */}
         <div className={type === "noLanding" ? classes.navIconWrapper : classes.noDisplay}>
-        {type === "noLanding" && icons.map(icon =>{
-            return (
-                <Link to={icon.path} key={icon.name + language} onClick={icon.name === "world" && handleLangSelector} className={`${icon.name==="world" && classes.langSelector} ${(isActive && icon.name==="world") && classes.whileSelecting}`}>
-                    <img className={classes.noLandingNavIcon} src={icon.src} alt={language === "english" ? icon.altEng : icon.altSpa} ></img>
-                </Link>
-            )
-        })}
-        {isActive && <LangSelector type={"noLanding"} />}
-        </div>
-        <div className={type === "landing" ? classes.navWrapper : classes.navWrapperNoLanding}>
-            {elements.map((element) => {
+            {type === "noLanding" && icons.map(icon =>{
                 return (
-                    <Link to={element.path} key={element.path + language} className={type === "landing" ? classes.navElement : `${classes.navElement} ${classes.noLandingNavElement}`}>
-                        {language === "english" ? element.inEng : element.inSpa}
-                    </Link>
+                    icon.name !== "world" ?
+                    <Link to={icon.path} key={icon.name + language}>
+                        <img className={classes.noLandingNavIcon} src={icon.src} alt={language === "english" ? icon.altEng : icon.altSpa} ></img>
+                    </Link> :
+                    <button key={icon.name + language} onClick={handleLangSelector} className={`${classes.langSelector} ${isActive && classes.whileSelecting} `}>
+                        <img className={classes.noLandingNavIcon} src={icon.src} alt={language === "english" ? icon.altEng : icon.altSpa} ></img>
+                    </button>
                 )
             })}
+            {isActive ? <LangSelector type={"noLanding"} active={isActive}/> : <LangSelector type={"noLanding"} active={isActive}/>}
         </div>
+        {/* NAV LINK-TO-PAGES WRAPPER FOR ALL PAGES */}
+        {<div className={type === "landing" ? classes.navWrapper : classes.navWrapperNoLanding}>
+            {elements.map((element) => {
+                return (
+                    <NavLink to={element.path} key={element.path + language} 
+                    // className={`${classes.navElement} ${({isActive}) => isActive && "active"}`}>
+                    className={({isActive}) => isActive ? `${classes.navElement} ${classes.active}` : classes.navElement}>
+                        {language === "english" ? element.inEng : element.inSpa}
+                    </NavLink>
+                )
+            })}
+        </div>}
+            {type === "noLanding" && <div className={`${classes.navWrapperBurguer} ${openBurguer && classes.open}`}>
+                {elements.map((element) => {
+                    return (
+                        <Link to={element.path} key={element.path + language} className={classes.burguerElement} onClick={()=>handleSamePath(element.path)}>
+                            {language === "english" ? element.inEng : element.inSpa}
+                        </Link>
+                    )
+                })}
+        </div>}
+
+        {type === "noLanding" && (!openBurguer ?
+            <button className={classes.burguer} onClick={handleBurguer} key={burguer}>
+                <img src={burguer} alt={language === "english" ? "Hamburguer menu icon" : "Icono de menu de hamburgesa"}></img>
+            </button>
+            :
+            <button className={classes.cross} onClick={handleBurguer} key={cross}>
+                <img src={cross} alt={language === "english" ? "Close menu icon" : "Icono de cierre de menú"}></img>
+            </button>
+        )}
+
     </nav>
 );
 };

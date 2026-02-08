@@ -1,0 +1,54 @@
+.workMain {
+    grid-area: main;
+}
+/* 
+.heading {
+    display: flex;
+    align-items: center;
+    margin: 27px 0 36px 55px;
+}
+
+.sunPlay {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.sunPic {
+    width: 90px;
+    grid-row: 1;
+    grid-column: 1;
+}
+.playPic {
+    width: 45px;
+    grid-row: 1;
+    grid-column: 1;
+    transform: translateX(3px);
+}
+
+.heading h1 {
+    font-size: 32px;
+    margin: 0 27px;
+} */
+
+.faq {
+    margin: 27px 55px 0 55px;
+}
+
+.faq > h2 {
+    font-size: 28px;
+    margin: 0 0 10px 0;
+}
+.faq > p {
+    font-size: 24px;
+    margin: 0 0 30px 0;
+}
+
+@media (max-width: 600px) {
+    .heading {
+        margin: 27px 0 36px 20px;
+    }
+    .faq {
+        margin: 27px 20px 0 20px;
+    }
+}

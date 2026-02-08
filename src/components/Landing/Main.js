@@ -16,7 +16,7 @@ function Main () {
     const handleClick = (to) => to.current.scrollIntoView({behavior: 'smooth'});
 
     return (
-    <main className={classes.landingMain}>
+    <main className={`${classes.landingMain} animated`}>
             <Link to={"/"} onClick={() => handleClick(arrowRefOne)} ref={arrowRefOne}>
                 <img src={arrow} className={classes.arrow} alt={language === "english" ? "Arrow pointing down" : "Flecha hacia abajo"}/>
             </Link>

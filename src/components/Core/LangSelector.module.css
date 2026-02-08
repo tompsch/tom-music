@@ -8,63 +8,50 @@
     align-self: flex-end;
     margin-right: 20px;
     margin-bottom: 20px;
-    * {
-        animation: none;
-    }
 }
-/* .noLandingLang {
-    * {
-        animation: none;
-    }
-    position: absolute;
-    position-anchor: --lang-selector;
-    inset: auto;
-    margin: 0px 10px;
-
-    top: anchor(center);
-    left: anchor(right);
-    position-area: right center;
-
-    &:popover-open {
-
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        column-gap: 4px;
-        justify-items: center;
-        border: none;
-    }
-    img {
-        display: none;
-    }
-} */
-
+.lang * {
+    animation: none;
+}
 .noLandingLang {
-    * {
-        animation: none;
-        text-decoration: transparent;
-
-    }
-    @startin-style {
-    }
     position: absolute;
-    position-anchor: --lang-selector;
-
-    top: anchor(top);
-    left: anchor(right);
-    margin: 5px 10px;
+    margin: 5px 180px;
 
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 4px;
     justify-items: center;
-    
-    img {
-        display: none;
-    }
-    div:hover * {
-        text-decoration: underline yellow;
+    transition: 0.3s;
+    transition-behavior: allow-discrete;
+    opacity: 0;
+
+}
+@media(max-width:650px) {
+    .noLandingLang {
+        margin: 35px 126px;
     }
 }
+
+.active {
+    opacity: 1;
+    @starting-style {
+        opacity: 0;
+    }
+}
+.inactive {
+    display: none;
+}
+.noLandingLang * {
+    /* animation: none; */
+    text-decoration: transparent;
+}
+.noLandingLang img{
+    display: none;
+}
+
+.noLandingLang div:hover *{
+    text-decoration: underline yellow;
+}
+
 .english {
     display: grid;
     justify-items: center;

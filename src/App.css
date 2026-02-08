@@ -8,11 +8,20 @@
     to { opacity: 0 }
 }
 
+.animated {
+    /* opacity: 1;
+    transition: 0.75s; */
+    animation: entrada 0.75s;
+    /* @starting-style {
+        opacity: 0;
+    } */
+}
+
 * {
     margin: 0;
     padding: 0px;
     font-family: Futura, Trebuchet MS, Arial, sans-serif;
-    animation: entrada 0.75s;
+    /* animation: entrada 0.75s; */
 }
 
 /* Landing page (#root) */
@@ -26,6 +35,7 @@
     /* width: 100svw; */
     /* scroll-snap-type: y proximity; */
     /* overflow-y: scroll; */
+    /* animation: entrada 1s; */
     }
 
 /* About page */
@@ -35,5 +45,27 @@
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
     grid-template-areas: "header" "main";
+    /* animation: entrada 1s; */
+    /* animation: none; */
+
 }
 
+/* Media page */
+
+.mediaContainer {
+    display: grid;
+    height: 100dvh;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: "header" "main";
+}
+
+/* Work page */
+
+.workContainer {
+    display: grid;
+    height: 100dvh;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: "header" "main";
+}

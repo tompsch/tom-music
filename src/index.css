@@ -16,3 +16,8 @@ code {
     monospace;
 }
 
+
+:root {
+  --yellow: rgb(240, 218, 132, 1);
+  --light-yellow: rgb(240, 218, 132, 0.5);
+}

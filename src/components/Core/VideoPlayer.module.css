@@ -1,0 +1,39 @@
+.videoContainer {
+    position: relative;
+}
+.controlImg {
+        position: absolute;
+        display: none;
+        top:50%;
+        left:50%;
+        width: 70px;
+        transform: translate(-50%,-50%);
+        filter: invert(91%) sepia(100%) saturate(0%) hue-rotate(69deg) brightness(105%) contrast(100%) opacity(0.8);
+
+        opacity: 0;
+
+        transition: 0.5s;
+        transition-behavior: allow-discrete;
+}
+
+@media (hover: hover){
+    .play {
+        width: 75px;
+    }
+    .hovered {
+        display: block;
+        opacity: 0.8;
+        @starting-style {
+            opacity: 0;
+        }
+    }
+    .paused:hover {
+        filter: brightness(0.6)
+
+    }
+    .replay {
+        display: block;
+        opacity: 0.8;
+    }
+
+}
