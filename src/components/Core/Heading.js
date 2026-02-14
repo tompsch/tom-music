@@ -1,6 +1,6 @@
 import { useLanguage } from "../../context/LangContext"
 import classes from "./Heading.module.css"
-import sun from "../../assets/sun.png"
+import sun from "../../assets/sun.jpg"
 
 export default function Heading ({logoAlt, insideAlt, insideSrc, h1, style}) {
 const {language} = useLanguage();

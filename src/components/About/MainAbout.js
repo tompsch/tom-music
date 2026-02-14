@@ -1,5 +1,4 @@
 import classes from "./MainAbout.module.css"
-import sun from "../../assets/sun.png"
 import footprints from "../../assets/footprint.png"
 import { useLanguage } from "../../context/LangContext"
 import bioPic1 from "../../assets/bioPic1.png"

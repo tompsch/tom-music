@@ -4,7 +4,7 @@
 .aboutMain p {
     animation: none;
 }
-.heading {
+/* .heading {
     display: flex;
     align-items: center;
     margin: 27px 0 36px 55px;
@@ -32,7 +32,7 @@
 .heading h1 {
     font-size: 32px;
     margin: 0 27px;
-}
+} */
 
 .bio {
     /* display: flex;
