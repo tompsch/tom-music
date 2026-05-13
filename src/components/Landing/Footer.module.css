@@ -33,6 +33,7 @@ footer {
 .scrollUp {
     position: fixed;
     display: none;
+    border-radius: 50%;
     left: 50%;
     right: 50%;
     bottom: 40px;
@@ -41,17 +42,25 @@ footer {
     aspect-ratio: 1;
     height: 65px;
     filter: grayscale();
+    transition: 0.3s;
+    transition-behavior: allow-discrete;
+    opacity: 0;
 }
 
 .scrollUp:hover {
     opacity: 0.8;
-    filter: none;
+    /* filter: none; */
+    /* background-color: var(--light-yellow); */
     transition: 0.5s;
     cursor: pointer;
 }
 
 .visible {
     display: block;
+    opacity: 1;
+    @starting-style {
+        opacity: 0;
+    }
 }
 
 .copyright {

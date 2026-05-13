@@ -1,8 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { use, useEffect, useRef, useState } from "react";
 import classes from "./VideoPlayer.module.css"
 import pauseIcon from "../../assets/pause.svg"
 import playIcon from "../../assets/play.svg"
 import replayIcon from "../../assets/replay.svg"
+import { usePlayback } from '../../context/PlaybackContext';
+
 
 export default function VideoPlayer ({src, poster}) {
 
@@ -11,6 +13,7 @@ export default function VideoPlayer ({src, poster}) {
     const [ended, setEnded] = useState(false);
     const [hovered, setHovered] = useState(false);
     const leaveTimeout = useRef(null);
+    const { playback, setPlayback } = usePlayback();
 
     const isPlaying = (ref) => {
        if(ref.current.paused) {
@@ -24,12 +27,15 @@ export default function VideoPlayer ({src, poster}) {
             await video.play();
             setPlaying(true);
             setEnded(false);
+            setPlayback(ref.current);
+
         } catch(e) {
             setPlaying(false);
             console.log(e);
         }
     }
     const handlePlay = () => {
+        setPlayback(false);
         if(!isPlaying(ref)) {
             playVideo(ref.current);
         } else if (isPlaying(ref)) {
@@ -37,6 +43,14 @@ export default function VideoPlayer ({src, poster}) {
             setPlaying(false);
         }
     }
+
+    useEffect(()=>{
+        if(playback && playback !== ref.current) {
+            console.log("i will pause this video")
+            ref.current.pause();
+            setPlaying(false);
+        }
+    },[playback])
 
     useEffect(()=>{
         const handleEnd = () =>{

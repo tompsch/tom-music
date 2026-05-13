@@ -14,7 +14,9 @@
 }
 .noLandingLang {
     position: absolute;
-    margin: 5px 180px;
+    /* margin: 5px 180px; */
+    top: 25px;
+    left: 220px;
 
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -27,7 +29,9 @@
 }
 @media(max-width:650px) {
     .noLandingLang {
-        margin: 35px 126px;
+        /* margin: 35px 126px; */
+        top: 55px;
+        left: 163px;
     }
 }
 

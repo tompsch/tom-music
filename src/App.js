@@ -2,10 +2,12 @@ import './App.css';
 import Landing from './pages/Landing';
 import { LangProvider } from './context/LangContext';
 import { ScrollProvider } from "./context/ScrollContext"
+import { PlaybackProvider } from "./context/PlaybackContext"
 import { Route, Routes } from 'react-router';
 import About from './pages/About';
 import Media from './pages/Media';
 import Work from './pages/Work';
+import Contact from './pages/Contact';
 import { useLocation } from 'react-router';
 import { useEffect, useRef } from 'react';
 
@@ -21,12 +23,15 @@ function App() {
   return (
       <ScrollProvider>
         <LangProvider >
-          <Routes>
-            <Route path="/" element={<Landing firstMount={firstMount.current}/>} />
-            <Route path="about" element={<About />} />
-            <Route path="media" element={<Media />} />
-            <Route path="work" element={<Work />} />
-          </Routes>
+          <PlaybackProvider>
+            <Routes>
+              <Route path="/" element={<Landing firstMount={firstMount.current}/>} />
+              <Route path="about" element={<About />} />
+              <Route path="media" element={<Media />} />
+              <Route path="work" element={<Work />} />
+              <Route path="contact" element={<Contact />} />
+            </Routes>
+          </PlaybackProvider>
         </LangProvider>
       </ScrollProvider>
   )

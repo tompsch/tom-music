@@ -50,7 +50,20 @@ div.noDisplay {
 }
 
 .noLandingNavIcon {
-    width: 34px;
+    width: 30px;
+    /* border: 1px solid red; */
+    padding: 5px;
+    transition: 0.5s;
+
+
+}
+.noLandingNavIcon:hover {
+    width: 30px;
+    box-shadow:  inset 4px 4px 4px var(--light-yellow),
+    inset 4px -4px 4px var(--light-yellow),
+    inset -4px 4px 4px var(--light-yellow),
+    inset -4px -4px 4px var(--light-yellow);
+    border-radius: 40%;
 }
 
 .langSelector {
@@ -71,7 +84,7 @@ div.noDisplay {
     font-size: clamp(20px,1.8vw,30px);
     text-decoration: none;
     color: black;
-    /* transition: 0.5s; */
+    transition: 0.5s;
 }
 .burguer {
     display: none;
@@ -158,10 +171,6 @@ div.noDisplay {
         align-items: end;
         width: auto;
         z-index: 2;
-        /* animation: none; */
-    }
-    .pseudoAnimated {
-        /* animation: entrada 0.75s; */
     }
     .navWrapperNoLanding{
         display: none;
@@ -171,9 +180,6 @@ div.noDisplay {
     }
     .burguer:hover {
         cursor: pointer;
-    }
-    .burguer img {
-        /* animation: none; */
     }
     .cross {
         display:block;
