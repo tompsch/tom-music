@@ -18,13 +18,17 @@ function LangSelector ({type, active}) {
         <aside className={`animated ${type=== "landing" ? classes.lang : classes.noLandingLang} ${active ? classes.active : classes.inactive}`}>
             <div className={`${classes.english} ${language === "english" ? classes.on : classes.off}`}
                  onClick={() => changeLang("toEng")}
-                 aria-label={language === "english" ? "Language selector: English" : "Seleccionador de idioma: inglés"}>
+                 aria-label={language === "english" ? "Language selector: English" : "Seleccionador de idioma: inglés"}
+                 tabIndex={0}
+                 onKeyDown={e => e.key === "Enter" && changeLang("toEng")}>
                 <p className={classes.eng}>EN</p>
                 <img className={classes.engPic} src={ukLogo} alt={language === "english" ? "UK flag" : "Bandera del Reino Unido"}/>
             </div>
             <div className={`${classes.spanish} ${language === "spanish" ? classes.on : classes.off}`}
                  onClick={() => changeLang("toSpa")}
-                 aria-label={language === "english" ? "Language selector: Spanish" : "Seleccionador de idioma: español"}>
+                 aria-label={language === "english" ? "Language selector: Spanish" : "Seleccionador de idioma: español"}
+                 tabIndex={0}
+                 onKeyDown={e => e.key === "Enter" && changeLang("toSpa")}>
                 <p className={classes.esp}>ES</p>
                 <img className={classes.espPic} src={spainLogo} alt={language === "english" ? "Spain flag" : "Bandera de España"}/>
             </div>

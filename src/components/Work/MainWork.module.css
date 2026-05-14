@@ -1,35 +1,6 @@
 .workMain {
     grid-area: main;
 }
-/* 
-.heading {
-    display: flex;
-    align-items: center;
-    margin: 27px 0 36px 55px;
-}
-
-.sunPlay {
-    display: grid;
-    align-items: center;
-    justify-items: center;
-}
-
-.sunPic {
-    width: 90px;
-    grid-row: 1;
-    grid-column: 1;
-}
-.playPic {
-    width: 45px;
-    grid-row: 1;
-    grid-column: 1;
-    transform: translateX(3px);
-}
-
-.heading h1 {
-    font-size: 32px;
-    margin: 0 27px;
-} */
 
 .faq {
     margin: 27px 55px 0 55px;

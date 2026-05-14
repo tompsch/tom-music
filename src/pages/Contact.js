@@ -1,11 +1,11 @@
 import HeaderNoLanding from "../components/Core/HeaderNoLanding";
-import MainContact from "../components/Contact/MainContact";
+import { Outlet } from "react-router";
 
 export default function Contact () {
     return (
         <div className="contactContainer">
             <HeaderNoLanding headerPage="contactHeader" navType="noLanding"/>
-            <MainContact />
+            <Outlet />
         </div>
     )
 };

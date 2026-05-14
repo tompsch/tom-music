@@ -1,4 +1,4 @@
-import { use, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import classes from "./VideoPlayer.module.css"
 import pauseIcon from "../../assets/pause.svg"
 import playIcon from "../../assets/play.svg"
@@ -8,7 +8,7 @@ import { usePlayback } from '../../context/PlaybackContext';
 
 export default function VideoPlayer ({src, poster}) {
 
-    const ref = useRef(undefined);
+    const ref = useRef(null);
     const [playing, setPlaying] = useState(false);
     const [ended, setEnded] = useState(false);
     const [hovered, setHovered] = useState(false);
@@ -35,7 +35,6 @@ export default function VideoPlayer ({src, poster}) {
         }
     }
     const handlePlay = () => {
-        setPlayback(false);
         if(!isPlaying(ref)) {
             playVideo(ref.current);
         } else if (isPlaying(ref)) {
@@ -65,7 +64,7 @@ export default function VideoPlayer ({src, poster}) {
     },[]);
 
     return(
-        <div onClick={handlePlay} className={`${classes.videoContainer}`}
+        <div tabIndex={0} onKeyDown={e => e.key === "Enter" && handlePlay()} onClick={handlePlay} className={`${classes.videoContainer}`}
                 onMouseEnter={()=> {
                     if(leaveTimeout.current) {
                         clearTimeout(leaveTimeout.current)

@@ -16,7 +16,7 @@
     position: absolute;
     /* margin: 5px 180px; */
     top: 25px;
-    left: 220px;
+    left: 200px;
 
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -27,11 +27,11 @@
     opacity: 0;
 
 }
-@media(max-width:650px) {
+@media(max-width:600px) {
     .noLandingLang {
         /* margin: 35px 126px; */
         top: 55px;
-        left: 163px;
+        left: 145px;
     }
 }
 

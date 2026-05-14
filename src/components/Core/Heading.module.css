@@ -32,4 +32,13 @@
     .heading {
         margin: 27px 0 27px 20px;
     }
+    .heading h1 {
+        font-size: 24px;
+    }
+    .sunPic {
+        width: 72px;
+    }
+    .picture {
+        width: 36px;
+    }
 }

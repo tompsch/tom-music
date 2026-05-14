@@ -1,0 +1,63 @@
+.contactMain {
+    grid-area: main;
+}
+
+.contactMain form {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    row-gap: 3px;
+    margin: 0 auto;
+}
+.contactMain input, .contactMain textarea {
+    padding: 3px;
+    resize: none;
+}
+.contactMain button {
+    width: fit-content;
+    align-self: center;
+    padding: 5px 10px;
+    border-radius: 16px;
+    margin: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 300ms;
+}
+.contactMain button:hover {
+    background-color: var(--light-yellow);
+}
+button:disabled {
+        pointer-events: none;
+}
+.hidden {
+    display: none;
+}
+.error {
+    color: red;
+}
+.error::before {
+    content: "* "
+}
+.confirmation {
+    text-align: center;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    align-items: center;
+}
+.confirmation a {
+    margin: 20px 0;
+    text-decoration: none;
+    color: inherit;
+    padding: 10px;
+    transition: 300ms;
+
+}
+.confirmation a:hover {
+    background-color: var(--light-yellow);
+    width: fit-content;
+    padding: 10px;
+    border-radius: 4px;
+
+}

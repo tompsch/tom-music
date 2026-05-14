@@ -8,6 +8,8 @@ import About from './pages/About';
 import Media from './pages/Media';
 import Work from './pages/Work';
 import Contact from './pages/Contact';
+import MainContact from './components/Contact/MainContact';
+import ContactConfirmation from './components/Contact/ContactConfirmation';
 import { useLocation } from 'react-router';
 import { useEffect, useRef } from 'react';
 
@@ -29,7 +31,10 @@ function App() {
               <Route path="about" element={<About />} />
               <Route path="media" element={<Media />} />
               <Route path="work" element={<Work />} />
-              <Route path="contact" element={<Contact />} />
+              <Route path="contact" element={<Contact />}>
+                <Route index element={<MainContact />} />
+                <Route path="confirmation" element={<ContactConfirmation />} />
+              </Route>
             </Routes>
           </PlaybackProvider>
         </LangProvider>
