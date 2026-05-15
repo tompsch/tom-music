@@ -17,7 +17,7 @@ import youtube2 from "../../assets//media/youtube2.mp4"
 import youtube2Pic from "../../assets//media/youtube2Pic.jpg"
 import VideoPlayer from "../Core/VideoPlayer"
 import Heading from "../Core/Heading"
-import videocam from "../../assets/videocam.svg"
+import videocam from "../../assets/videocam.png"
 
 export default function MainMedia () {
 

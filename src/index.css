@@ -1,3 +1,13 @@
+@font-face {
+  font-family: "Futura2";
+  src: url("./assets/fonts/Jost-VariableFont_wght.ttf") format('truetype');
+  font-display: swap;
+}
+@font-face {
+  font-family: "TebuchetMs";
+  src: url("./assets/fonts/trebuc.ttf") format('truetype');
+  font-display: swap;
+}
 html {
   scrollbar-gutter: stable;
 }
@@ -5,19 +15,18 @@ html {
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  font-family: Futura2, Futura, TrebuchetMs, Trebuchet MS, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-
 :root {
   --yellow: rgb(240, 218, 132, 1);
   --light-yellow: rgb(240, 218, 132, 0.5);
+  --bgDark: #0d0d0f;
+
+  background-color: white;
+  color: var(--bgDark);
 }

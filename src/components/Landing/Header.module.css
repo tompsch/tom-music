@@ -21,7 +21,7 @@
     grid-area: left;
     display: grid;
     background-color: white;
-    color: black;
+    color: var(--bgDark);
     font-size: clamp(18px,2.2vw,25px);
     justify-items: center;
     align-items: center;

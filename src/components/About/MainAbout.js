@@ -1,12 +1,12 @@
 import classes from "./MainAbout.module.css"
 import footprints from "../../assets/footprint.png"
 import { useLanguage } from "../../context/LangContext"
-import bioPic1 from "../../assets/bioPic1.png"
-import bioPic2 from "../../assets/bioPic2.png"
-import bioPic3 from "../../assets/bioPic3.png"
-import bioPic4 from "../../assets/bioPic4.png"
-import bioPic5 from "../../assets/bioPic5.png"
-import bioPic6 from "../../assets/bioPic6.png"
+import bioPic1 from "../../assets/bioPic1.webp"
+import bioPic2 from "../../assets/bioPic2.webp"
+import bioPic3 from "../../assets/bioPic3.webp"
+import bioPic4 from "../../assets/bioPic4.webp"
+import bioPic5 from "../../assets/bioPic5.webp"
+import bioPic6 from "../../assets/bioPic6.webp"
 import Heading from "../Core/Heading"
 
 const englishBio = ["Biography",

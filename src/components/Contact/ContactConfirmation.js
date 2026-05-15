@@ -1,6 +1,6 @@
 import Heading from "../Core/Heading"
 import classes from "./MainContact.module.css"
-import contact from "../../assets/contact_us.svg"
+import contact from "../../assets/contact_us.png"
 import { Link } from "react-router"
 
 export default function ContactConfirmation () {

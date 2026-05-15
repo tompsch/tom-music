@@ -1,6 +1,7 @@
 .mediaMain {
     display: grid;
     grid-template-rows: auto auto;
+    background-color: white;
 }
 
 .videoWrapper {
@@ -16,7 +17,7 @@
     width: 49vw;
     min-width: 300px;
     flex: 1;
-    background-color: black;
+    background-color: var(--bgDark);
     align-content: center;
 }
 
@@ -36,7 +37,7 @@
     margin: 0;
 }
 .videoContainer {
-    background-color: black;
+    background-color: var(--bgDark);
     display: flex;
 }
 .videoContainer video {

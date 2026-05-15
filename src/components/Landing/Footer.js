@@ -1,4 +1,4 @@
-import foto from '../../assets/fotoFooter.jpg'
+import foto from '../../assets/fotoFooter.webp'
 import scrollUp from '../../assets/downArrow.webp'
 import { useEffect, useState } from 'react';
 import { useScroll } from "../../context/ScrollContext";

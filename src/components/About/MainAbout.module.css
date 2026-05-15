@@ -18,10 +18,9 @@
         opacity: 0.5;
     }
 }
-.bioPicContainer:has(p:hover) * {
+.bioPicContainer:hover * {
     opacity: 1;
     transition: 0.5s;
-
 }
 
 @media (max-width: 1200px) {

@@ -1,5 +1,5 @@
 import classes from "./MainWork.module.css"
-import playIcon from "../../assets/playIcon.svg"
+import playIcon from "../../assets/playIcon.png"
 import { useLanguage } from "../../context/LangContext"
 import Heading from "../Core/Heading"
 

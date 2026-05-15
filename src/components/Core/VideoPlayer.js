@@ -5,7 +5,6 @@ import playIcon from "../../assets/play.svg"
 import replayIcon from "../../assets/replay.svg"
 import { usePlayback } from '../../context/PlaybackContext';
 
-
 export default function VideoPlayer ({src, poster}) {
 
     const ref = useRef(null);
@@ -77,7 +76,7 @@ export default function VideoPlayer ({src, poster}) {
                         setHovered(false);
                     }
                     }}>
-            <video ref={ref} src={src} poster={poster} className={`${playing ? classes.playing : classes.paused}`}></video>
+            <video preload="none" ref={ref} src={src} poster={poster} className={`${playing ? classes.playing : classes.paused}`}></video>
             {<img src={!ended ? (playing ? pauseIcon : playIcon) : undefined} className={`${classes.controlImg} ${playing ? classes.pause : classes.play} ${hovered && classes.hovered}`}></img>}
             {<img src={ended ? replayIcon : undefined} className={`${classes.controlImg} ${classes.replay}`}></img>}
         </div>
