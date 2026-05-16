@@ -37,18 +37,18 @@ return (
             <section className={classes.faq}>
                 {language === "english" ? englishFAQ.map((element) => {
                     return (
-                        <>
+                        <div className={classes.QA} key={element.h}>
                             <h2>{element.h}</h2>
                             <p>{element.p}</p>
-                        </>
+                        </div>
                     )
                 })
                 : spanishFAQ.map((element) => {
                     return (
-                        <>
+                        <div className={classes.QA} key={element.h}>
                             <h2>{element.h}</h2>
                             <p>{element.p}</p>
-                        </>
+                        </div>
                     )
                 }) }
             </section>

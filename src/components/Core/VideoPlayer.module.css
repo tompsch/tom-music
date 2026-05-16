@@ -37,3 +37,19 @@
     }
 
 }
+.loading {
+    position: absolute;
+    top:75%;
+    left:50%;
+    width: 40px;
+    filter: invert(91%) sepia(100%) saturate(0%) hue-rotate(69deg) brightness(105%) contrast(100%) opacity(0.8);
+    animation: turn360 linear infinite 1s;
+}
+@keyframes turn360 {
+    from {
+        transform: translate(-50%,-50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%,-50%) rotate(360deg);
+    }
+}

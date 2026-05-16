@@ -27,7 +27,7 @@
     opacity: 0;
 
 }
-@media(max-width:600px) {
+@media(max-width:650px) {
     .noLandingLang {
         /* margin: 35px 126px; */
         top: 55px;
@@ -100,7 +100,7 @@
     cursor: pointer;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
     .lang p {
         color: white;
     }

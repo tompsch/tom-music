@@ -3,6 +3,7 @@ import classes from "./VideoPlayer.module.css"
 import pauseIcon from "../../assets/pause.svg"
 import playIcon from "../../assets/play.svg"
 import replayIcon from "../../assets/replay.svg"
+import loadingIcon from "../../assets/loading.svg"
 import { usePlayback } from '../../context/PlaybackContext';
 
 export default function VideoPlayer ({src, poster}) {
@@ -11,6 +12,7 @@ export default function VideoPlayer ({src, poster}) {
     const [playing, setPlaying] = useState(false);
     const [ended, setEnded] = useState(false);
     const [hovered, setHovered] = useState(false);
+    const [buffering, setBuffering] = useState(false);
     const leaveTimeout = useRef(null);
     const { playback, setPlayback } = usePlayback();
 
@@ -23,6 +25,8 @@ export default function VideoPlayer ({src, poster}) {
 
     const playVideo = async (video) => {
         try {
+            setBuffering(true);
+
             await video.play();
             setPlaying(true);
             setEnded(false);
@@ -30,7 +34,7 @@ export default function VideoPlayer ({src, poster}) {
 
         } catch(e) {
             setPlaying(false);
-            console.log(e);
+            setBuffering(false);
         }
     }
     const handlePlay = () => {
@@ -44,7 +48,6 @@ export default function VideoPlayer ({src, poster}) {
 
     useEffect(()=>{
         if(playback && playback !== ref.current) {
-            console.log("i will pause this video")
             ref.current.pause();
             setPlaying(false);
         }
@@ -62,6 +65,17 @@ export default function VideoPlayer ({src, poster}) {
         }
     },[]);
 
+    useEffect(()=>{
+        const video = ref.current;
+        const buffer = () => setBuffering(false);
+        const waiting = () => setBuffering(true);
+
+        video.addEventListener("playing", buffer)
+        video.addEventListener("waiting", waiting)
+        return () => video.removeEventListener("playing", buffer)
+        return () => video.removeEventListener("waiting", waiting)
+    },[])
+
     return(
         <div tabIndex={0} onKeyDown={e => e.key === "Enter" && handlePlay()} onClick={handlePlay} className={`${classes.videoContainer}`}
                 onMouseEnter={()=> {
@@ -77,8 +91,9 @@ export default function VideoPlayer ({src, poster}) {
                     }
                     }}>
             <video preload="none" ref={ref} src={src} poster={poster} className={`${playing ? classes.playing : classes.paused}`}></video>
-            {<img src={!ended ? (playing ? pauseIcon : playIcon) : undefined} className={`${classes.controlImg} ${playing ? classes.pause : classes.play} ${hovered && classes.hovered}`}></img>}
-            {<img src={ended ? replayIcon : undefined} className={`${classes.controlImg} ${classes.replay}`}></img>}
+            <img src={!ended ? (playing ? pauseIcon : playIcon) : undefined} className={`${classes.controlImg} ${playing ? classes.pause : classes.play} ${hovered && classes.hovered}`}></img>
+            <img src={ended ? replayIcon : undefined} className={`${classes.controlImg} ${classes.replay}`}></img>
+            {buffering && <img src={loadingIcon} className={classes.loading}></img>}
         </div>
     )
 }

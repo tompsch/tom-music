@@ -68,6 +68,8 @@ export default function MainContact () {
             style={{transform: "translate(2px,2px)"}}
             h1={["Contact", "Contacto"]}/>
 
+            <h2 className={classes.h2}>{useLanguage().language === "english" ? "Want to get in touch?" : "¿Conversamos?"}</h2>
+
             <form onSubmit={netlifySubmit} name="contact" data-netlify="true" netlify-honeypot="bot-field">
                 <input type="hidden" name="form-name" value="contact" />
                 <p className={classes.hidden}>
@@ -103,5 +105,8 @@ export default function MainContact () {
                 <button disabled={!formik.dirty || !formik.isValid} type="submit">{useLanguage().language === "english" ? "Send Message" : "Enviar mensaje"}</button>
 
             </form>
+            <h3 className={classes.h3}>
+                <a href="mailto:hello@tompsch.com">{useLanguage().language === "english" ? "or send me an email!" : "¡o envíame un mail!"}</a>
+            </h3>
         </main>
 )}
