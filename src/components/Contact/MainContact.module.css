@@ -28,6 +28,8 @@
 .contactMain input, .contactMain textarea {
     padding: 3px;
     resize: none;
+    font-family: inherit;
+    font-size: 1em;
 }
 .contactMain button {
     width: fit-content;
